@@ -126,3 +126,16 @@ The result will be located at ./result/
 If you have any questions or require further information, please feel free to contact the authors. Thank you!
 
 
+## Citation
+Please kindly cite our work as follows for any purpose of usage.
+```bibtex
+@inproceedings{yang2025prsa,
+  title={$\{$PRSA$\}$: Prompt Stealing Attacks against $\{$Real-World$\}$ Prompt Services},
+  author={Yang, Yong and Li, Changjiang and Li, Qingming and Ma, Oubo and Wang, Haoyu and Wang, Zonghui and Gao, Yandong and Chen, Wenzhi and Ji, Shouling},
+  booktitle={34th USENIX Security Symposium (USENIX Security 25)},
+  pages={2283--2302},
+  year={2025}
+}
+
+
+
