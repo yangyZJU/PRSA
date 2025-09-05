@@ -4,16 +4,9 @@ This repository contains the code for our USENIX Security Symposium 2025 paper, 
 
 ## 📂 Assets
 
-As promised in our Open Science section, we provide the collected open-source datasets (**collected dataset**) used in the **Prompt Generation** phase, along with the necessary code and configuration files to reproduce our experiments.
+We provide the collected open-source datasets (**collected dataset**) used in the **Prompt Generation** phase, along with the necessary code and configuration files to reproduce our experiments.
 
-For **real-world prompts and LLM applications**, we do **not** upload them to any public repository to avoid potential legal and ethical concerns. Instead, we include a **synthetic prompt dataset (demo dataset)** that enables researchers to run and validate our attack pipeline end to end.
-
-
-As described in the Ethics section of our paper, the synthetic prompts are derived from real-world prompts that we **legally acquired through paid access**, and were subsequently anonymized and modified with consent from the original developers. Therefore, these data do not raise copyright concerns.
-
-
-For verified academic researchers who wish to obtain the real-world prompt examples, please contact us. We will reach out to the original prompt developers to confirm approval before sharing the data.
-
+For **real-world prompts and LLM applications**, we do **not** upload them to any public repository to avoid potential legal and ethical concerns. Instead, we include a **synthetic prompt dataset (demo dataset)** that enables researchers to run and validate our attack pipeline end to end. The synthetic prompts are derived from real-world prompts that we **legally acquired through paid access**, and were subsequently anonymized and modified with consent from the original developers. Therefore, these data do not raise copyright concerns.
 
 
 ### Datasets 
