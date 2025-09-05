@@ -1,0 +1,1824 @@
+Prompt,Preview Input,Preview Output,Input Test Case1,Input Test Case2
+Write a [language] program that converts [input format] to [output format].,"[language]=Java
+[input format]=XML
+[output format]=JSON","```java
+// Java program to convert XML to JSON
+
+import org.json.JSONObject;
+import org.json.XML;
+
+public class XMLtoJSONConverter {
+
+    public static void main(String[] args) {
+        String xmlString = ""<root><person><name>John Doe</name><age>30</age></person></root>"";
+        
+        JSONObject jsonObject = XML.toJSONObject(xmlString);
+        String jsonString = jsonObject.toString(4);
+        
+        System.out.println(jsonString);
+    }
+}
+```",[language]=Python [input format]=CSV [output format]=SQL database,[language]=C# [input format]=HTML [output format]=PlainText
+Develop a [language] module to parse and extract information from [file format] files.,"[language]=Python
+[file format]=CSV","```python
+import csv
+
+def parse_csv_file(file_path):
+    data = []
+    with open(file_path, 'r') as file:
+        csv_reader = csv.reader(file)
+        headers = next(csv_reader)
+        for row in csv_reader:
+            data.append(dict(zip(headers, row)))
+    return data
+
+# Example usage
+file_path = 'example.csv'
+parsed_data = parse_csv_file(file_path)
+for item in parsed_data:
+    print(item)
+```","[language]=Java
+[file format]=XML","[language]=C#
+[file format]=JSON"
+Develop a script in [language] that simulates the behavior of [system or process].,"[language]=JavaScript
+[system or process]=traffic light system","```javascript
+// Define the traffic light system
+const TrafficLightSystem = {
+  currentState: ""red"",
+  states: [""red"", ""yellow"", ""green""],
+  
+  // Function to change the state of the traffic light
+  changeState: function() {
+    const currentStateIndex = this.states.indexOf(this.currentState);
+    this.currentState = this.states[(currentStateIndex + 1) % this.states.length];
+    console.log(`Traffic light is now ${this.currentState}`);
+  },
+  
+  // Function to start the traffic light simulation
+  startSimulation: function() {
+    console.log(""Traffic light simulation started..."");
+    setInterval(() => {
+      this.changeState();
+    }, 3000); // Change state every 3 seconds
+  }
+};
+
+// Start the traffic light simulation
+TrafficLightSystem.startSimulation();
+```
+
+This JavaScript script simulates a traffic light system by defining a `TrafficLightSystem` object with states of ""red"", ""yellow"", and ""green"". It includes a method to change the state of the traffic light and starts a simulation that changes the state every 3 seconds.",[language]=Python [system or process]=water cycle simulation,[language]=Java [system or process]=stock market trading algorithm
+Develop a [language] program that merges multiple [file type] files into one.,"[language]=Python
+[file type]=CSV","Here is a Python program that merges multiple CSV files into one:
+
+```python
+import pandas as pd
+import os
+
+# Path to the directory containing CSV files
+directory = 'path/to/csv/files'
+
+# Get a list of all CSV files in the directory
+csv_files = [file for file in os.listdir(directory) if file.endswith('.csv')]
+
+# Initialize an empty list to store dataframes
+dfs = []
+
+# Read each CSV file and append its contents to the list of dataframes
+for file in csv_files:
+    file_path = os.path.join(directory, file)
+    df = pd.read_csv(file_path)
+    dfs.append(df)
+
+# Concatenate all dataframes into a single dataframe
+merged_df = pd.concat(dfs, ignore_index=True)
+
+# Write the merged dataframe to a new CSV file
+merged_df.to_csv('merged_file.csv', index=False)
+
+print('CSV files merged successfully!')
+```
+
+Make sure to replace `'path/to/csv/files'` with the actual path to the directory containing your CSV files. This program reads all CSV files in the specified directory, merges them into a single dataframe, and then writes the merged dataframe to a new CSV file named `merged_file.csv`.","[language]=Java
+[file type]=PDF","[language]=C#
+[file type]=TXT"
+Write a [language] program to connect to a database and retrieve all records from the [table name] table.,"[language]=JavaScript
+[table name]=Employees","```javascript
+const mysql = require('mysql');
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'username',
+  password: 'password',
+  database: 'database_name'
+});
+
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to database: ' + err.stack);
+    return;
+  }
+  console.log('Connected to database.');
+
+  connection.query('SELECT * FROM Employees', (error, results, fields) => {
+    if (error) {
+      console.error('Error retrieving data: ' + error.stack);
+      return;
+    }
+    console.log('Retrieved records from Employees table:');
+    console.log(results);
+  });
+
+  connection.end((err) => {
+    if (err) {
+      console.error('Error disconnecting from database: ' + err.stack);
+      return;
+    }
+    console.log('Disconnected from database.');
+  });
+});
+```","[language]=Python
+[table name]=Orders","[language]=Java
+[table name]=Products"
+Write a [language] program that calculates the factorial of a given number.,[language]=C++,"Here is a C++ program that calculates the factorial of a given number:
+
+```cpp
+#include <iostream>
+
+unsigned long long factorial(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+int main() {
+    int number;
+    std::cout << ""Enter a number: "";
+    std::cin >> number;
+
+    if (number < 0) {
+        std::cout << ""Factorial is not defined for negative numbers."" << std::endl;
+    } else {
+        unsigned long long result = factorial(number);
+        std::cout << ""Factorial of "" << number << "" is: "" << result << std::endl;
+    }
+
+    return 0;
+}
+```
+
+You can compile and run this program to calculate the factorial of a given number. Just enter the number when prompted, and the program will output the factorial.",[language]=Python,[language]=Java
+Write a [language] program that calculates the factorial of a given number.,[language]=C++,"Here is a C++ program that calculates the factorial of a given number using a recursive function:
+
+```cpp
+#include <iostream>
+
+// Function to calculate the factorial of a number using recursion
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+int main() {
+    int number;
+    
+    // Input a number from the user
+    std::cout << ""Enter a number: "";
+    std::cin >> number;
+    
+    // Calculate the factorial of the input number
+    int result = factorial(number);
+    
+    // Display the result
+    std::cout << ""Factorial of "" << number << "" is: "" << result << std::endl;
+    
+    return 0;
+}
+```
+
+You can compile and run this program to calculate the factorial of a given number.",[language]=Python,[language]=Java
+Develop a [language] program that fetches and displays data from [API or database name].,"[language]=JavaScript
+[API or database name]=Spotify API","Here is a JavaScript program that fetches and displays data from the Spotify API:
+
+```javascript
+// Spotify API endpoint for searching tracks
+const searchEndpoint = 'https://api.spotify.com/v1/search';
+
+// Spotify API access token
+const accessToken = 'YOUR_ACCESS_TOKEN';
+
+// Function to fetch tracks based on search query
+async function searchTracks(query) {
+  const response = await fetch(`${searchEndpoint}?q=${query}&type=track`, {
+    headers: {
+      'Authorization': `Bearer ${accessToken}`
+    }
+  });
+
+  const data = await response.json();
+  return data.tracks.items;
+}
+
+// Function to display tracks on the console
+async function displayTracks(query) {
+  const tracks = await searchTracks(query);
+
+  tracks.forEach((track, index) => {
+    console.log(`${index + 1}. ${track.name} - ${track.artists[0].name}`);
+  });
+}
+
+// Search query for tracks (replace with your own query)
+const searchQuery = 'happy';
+
+// Display tracks based on search query
+displayTracks(searchQuery);
+```
+
+Before running the program, make sure to replace `YOUR_ACCESS_TOKEN` with your actual Spotify API access token. Additionally, you can change the `searchQuery` variable to search for different tracks based on your preferences.
+
+This program will fetch tracks from the Spotify API based on the provided search query and display the track names and artists on the console.","[language]=Python
+[API or database name]=GitHub API","[language]=Java
+[API or database name]=Firebase"
+Develop a [language] program that merges two [data structure] and removes duplicates.,"[language]=C++
+[data structure]=arrays","Here is a C++ program that merges two arrays and removes duplicates:
+
+```cpp
+#include <iostream>
+#include <unordered_set>
+#include <vector>
+
+std::vector<int> mergeArrays(std::vector<int>& arr1, std::vector<int>& arr2) {
+    std::unordered_set<int> uniqueSet;
+    std::vector<int> result;
+
+    for (int num : arr1) {
+        uniqueSet.insert(num);
+    }
+
+    for (int num : arr2) {
+        uniqueSet.insert(num);
+    }
+
+    for (int num : uniqueSet) {
+        result.push_back(num);
+    }
+
+    return result;
+}
+
+int main() {
+    std::vector<int> arr1 = {1, 2, 3, 4, 5};
+    std::vector<int> arr2 = {3, 4, 5, 6, 7};
+
+    std::vector<int> mergedArray = mergeArrays(arr1, arr2);
+
+    std::cout << ""Merged Array with Duplicates Removed: "";
+    for (int num : mergedArray) {
+        std::cout << num << "" "";
+    }
+    std::cout << std::endl;
+
+    return 0;
+}
+```
+
+In this program, we define a function `mergeArrays` that takes two vectors as input, merges them into a new vector while removing duplicates using an `unordered_set`. The `main` function demonstrates how to use this function with sample input arrays `arr1` and `arr2`. The merged array with duplicates removed is then printed to the console.",[language]=Python [data structure]=lists,[language]=Java [data_structure]=sets
+Write a [language] program that converts a [data type] to [another data type].,"[language]=C++
+[data type]=integer
+[another data type]=string","Here is a C++ program that converts an integer to a string:
+
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+    int num = 123; // Integer to convert to string
+    std::string str = std::to_string(num); // Convert integer to string
+
+    std::cout << ""Integer: "" << num << std::endl;
+    std::cout << ""String: "" << str << std::endl;
+
+    return 0;
+}
+```
+
+In this program, we use the `std::to_string` function to convert an integer `num` to a string `str`. The converted string is then printed to the console.","[language]=Python
+[data type]=float
+[another data type]=integer","[language]=Java
+[data type]=boolean
+[another data type]=string"
+Develop a [language] module to connect to a [type of database] and retrieve data based on [specific criteria].,"[language]=Java
+[type of database]=SQL database
+[specific criteria]=customer ID","Sure! Here is an example Java module that connects to an SQL database and retrieves data based on a specific customer ID:
+
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class CustomerDataRetriever {
+    
+    private static final String DB_URL = ""jdbc:mysql://localhost:3306/mydatabase"";
+    private static final String DB_USER = ""username"";
+    private static final String DB_PASSWORD = ""password"";
+
+    public static void main(String[] args) {
+        int customerId = 123; // specify the customer ID here
+
+        try (Connection connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD)) {
+            String sql = ""SELECT * FROM customers WHERE customer_id = ?"";
+            PreparedStatement statement = connection.prepareStatement(sql);
+            statement.setInt(1, customerId);
+
+            ResultSet resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt(""customer_id"");
+                String name = resultSet.getString(""customer_name"");
+                String email = resultSet.getString(""customer_email"");
+
+                System.out.println(""Customer ID: "" + id);
+                System.out.println(""Customer Name: "" + name);
+                System.out.println(""Customer Email: "" + email);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+In this module, we establish a connection to an SQL database using JDBC and retrieve data from the `customers` table based on the specified customer ID. The `DB_URL`, `DB_USER`, and `DB_PASSWORD` variables should be replaced with the actual database connection details. The `customerId` variable can be set to the specific customer ID for which you want to retrieve data. The SQL query selects all columns from the `customers` table where the `customer_id` matches the specified customer ID.
+
+You can run this Java module to connect to the SQL database, retrieve customer data based on the customer ID, and display the information in the console.",[language]=Python [type of database]=NoSQL database [specific criteria]=product category,[language]=C# [type of database]=graph database [specific criteria]=user connections
+Write a [language] program that converts [input format] to [output format].,"[language]=C++
+[input format]=CSV file
+[output format]=JSON file","Here is a C++ program that reads a CSV file and converts its contents to a JSON file:
+
+```cpp
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <string>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
+// Function to convert CSV data to JSON
+json convertCSVtoJSON(const std::string& csvFileName) {
+    std::ifstream csvFile(csvFileName);
+    if (!csvFile.is_open()) {
+        std::cerr << ""Error opening CSV file.\n"";
+        exit(1);
+    }
+
+    std::vector<std::string> headers;
+    std::vector<json> data;
+
+    std::string line;
+    if (std::getline(csvFile, line)) {
+        std::stringstream ss(line);
+        std::string cell;
+        while (std::getline(ss, cell, ',')) {
+            headers.push_back(cell);
+        }
+
+        while (std::getline(csvFile, line)) {
+            std::stringstream ss(line);
+            json record;
+            for (const auto& header : headers) {
+                std::getline(ss, cell, ',');
+                record[header] = cell;
+            }
+            data.push_back(record);
+        }
+    }
+
+    json jsonOutput;
+    jsonOutput[""data""] = data;
+
+    return jsonOutput;
+}
+
+int main() {
+    std::string csvFileName = ""input.csv"";
+    json jsonData = convertCSVtoJSON(csvFileName);
+
+    std::string jsonFileName = ""output.json"";
+    std::ofstream jsonFile(jsonFileName);
+    if (jsonFile.is_open()) {
+        jsonFile << std::setw(4) << jsonData;
+        jsonFile.close();
+        std::cout << ""Conversion successful. JSON file created.\n"";
+    } else {
+        std::cerr << ""Error creating JSON file.\n"";
+        return 1;
+    }
+
+    return 0;
+}
+```
+
+Make sure to replace `""input.csv""` with the name of your input CSV file. When you run this program, it will read the CSV file, convert its contents to JSON, and write the output to a JSON file named `""output.json""`.",[language]=Python [input format]=text file [output format]=XML file,[language]=Java [input format]=Excel spreadsheet [output format]=SQL database
+Develop a script in [language] that automates the process of [specific task].,"[language]=Python
+[specific task]=sending daily summary emails","Sure! Here is a sample Python script that automates the process of sending daily summary emails:
+
+```python
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import schedule
+import time
+
+def send_email():
+    # Email configurations
+    sender_email = ""your_email@gmail.com""
+    sender_password = ""your_password""
+    receiver_email = ""recipient_email@gmail.com""
+    
+    subject = ""Daily Summary""
+    body = ""Here is your daily summary:\n\n- List of tasks completed\n- Important reminders\n- Any other relevant information""
+    
+    # Create message
+    message = MIMEMultipart()
+    message[""From""] = sender_email
+    message[""To""] = receiver_email
+    message[""Subject""] = subject
+    message.attach(MIMEText(body, ""plain""))
+    
+    # Connect to SMTP server and send email
+    server = smtplib.SMTP(""smtp.gmail.com"", 587)
+    server.starttls()
+    server.login(sender_email, sender_password)
+    server.send_message(message)
+    server.quit()
+    
+    print(""Daily summary email sent successfully!"")
+
+# Schedule to send the email daily at a specific time (e.g., 8:00 AM)
+schedule.every().day.at(""08:00"").do(send_email)
+
+# Main loop to run the scheduler
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+```
+
+Make sure to replace `your_email@gmail.com`, `your_password`, and `recipient_email@gmail.com` with your actual email credentials and the recipient's email address. You can customize the email content in the `body` variable based on your requirements.
+
+This script uses the `schedule` library to schedule the sending of the email daily at a specific time. Just run this script, and it will automatically send the daily summary email at the specified time.",[language]=JavaScript [specific task]=scraping weather data from websites,[language]=Ruby [specific task]=generating monthly financial reports
+Write a [language] program that connects to a database and retrieves all records from the [table name] table.,"[language]=PHP
+[table name]=employees","```php
+<?php
+$servername = ""localhost"";
+$username = ""username"";
+$password = ""password"";
+$dbname = ""database_name"";
+
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die(""Connection failed: "" . $conn->connect_error);
+}
+
+$sql = ""SELECT * FROM employees"";
+$result = $conn->query($sql);
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        echo ""ID: "" . $row[""id""]. "" - Name: "" . $row[""name""]. "" - Position: "" . $row[""position""]. ""<br>"";
+    }
+} else {
+    echo ""0 results"";
+}
+
+$conn->close();
+?>
+```
+
+In this PHP program, replace `localhost`, `username`, `password`, `database_name` with your actual database connection details, and `employees` with the name of the table you want to retrieve records from. This program connects to the database, executes a SQL query to select all records from the specified table, and then prints out the retrieved records.","[language]=Python
+[table name]=customers","[language]=Java
+[table name]=products"
+Write a [language] program that connects to a database and retrieves all records from a specified table.,"[language]=Java
+database=MySQL
+table=employees","```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class RetrieveDataFromDatabase {
+
+    public static void main(String[] args) {
+        String url = ""jdbc:mysql://localhost:3306/your_database_name"";
+        String user = ""your_username"";
+        String password = ""your_password"";
+        String table = ""employees"";
+
+        try (Connection connection = DriverManager.getConnection(url, user, password)) {
+            Statement statement = connection.createStatement();
+            String query = ""SELECT * FROM "" + table;
+            ResultSet resultSet = statement.executeQuery(query);
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt(""id"");
+                String name = resultSet.getString(""name"");
+                String position = resultSet.getString(""position"");
+
+                System.out.println(""ID: "" + id + "", Name: "" + name + "", Position: "" + position);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+Make sure to replace `your_database_name`, `your_username`, and `your_password` with your actual database credentials before running the program. This Java program connects to a MySQL database and retrieves all records from the specified `employees` table, printing out the `id`, `name`, and `position` fields for each record.","[language]=Python
+database=PostgreSQL
+table=customers","[language]=C#
+database=SQLite
+table=products"
+Write a [language] program that calculates the factorial of a given number.,[language]=JavaScript,"```javascript
+function calculateFactorial(num) {
+    if (num < 0) {
+        return ""Factorial is not defined for negative numbers."";
+    } else if (num === 0) {
+        return 1;
+    } else {
+        let factorial = 1;
+        for (let i = 1; i <= num; i++) {
+            factorial *= i;
+        }
+        return factorial;
+    }
+}
+
+const number = 5;
+const factorial = calculateFactorial(number);
+console.log(`Factorial of ${number} is: ${factorial}`);
+```",[language]=Python,[language]=C++
+Write a [language] program that converts [input format] to [output format].,"[language]=JavaScript
+[input format]=CSV
+[output format]=JSON","Here's a JavaScript program that converts CSV input to JSON output:
+
+```javascript
+function csvToJson(csv) {
+    const lines = csv.trim().split('\n');
+    const headers = lines.shift().split(',');
+    
+    const result = lines.map(line => {
+        const values = line.split(',');
+        return headers.reduce((obj, header, index) => {
+            obj[header] = values[index];
+            return obj;
+        }, {});
+    });
+    
+    return JSON.stringify(result, null, 2);
+}
+
+const csvInput = `Name, Age, Country
+Alice, 25, USA
+Bob, 30, Canada
+Charlie, 22, UK`;
+
+const jsonOutput = csvToJson(csvInput);
+console.log(jsonOutput);
+```
+
+You can replace the `csvInput` variable with your own CSV input. When you run this program, it will output the converted JSON in the specified format.",[language]=Python [input format]=XML [output format]=SQLite,[language]=Java [input format]=YAML [output format]=PDF
+Develop a script in [language] that automates [specific task].,"[language]=Ruby
+[specific task]=sending daily summary emails","```ruby
+require 'net/smtp'
+
+def send_email(to, subject, body)
+  from = 'your_email@example.com'
+  password = 'your_password'
+  message = <<~MESSAGE
+    From: Your Name <#{from}>
+    To: #{to}
+    Subject: #{subject}
+    
+    #{body}
+  MESSAGE
+
+  Net::SMTP.start('smtp.example.com', 587, 'example.com', from, password, :login) do |smtp|
+    smtp.send_message message, from, to
+  end
+end
+
+def generate_daily_summary
+  # Logic to generate daily summary goes here
+  return 'Today\'s summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit.'
+end
+
+# Set the email recipients
+recipients = ['recipient1@example.com', 'recipient2@example.com']
+
+# Generate the daily summary
+summary = generate_daily_summary()
+
+# Send daily summary email to each recipient
+recipients.each do |recipient|
+  send_email(recipient, 'Daily Summary', summary)
+  puts ""Daily summary email sent to #{recipient}""
+end
+```
+
+This Ruby script automates the task of sending daily summary emails. It defines a `send_email` method to send an email using SMTP and a `generate_daily_summary` method to generate the daily summary content. The script then sets the email recipients, generates the daily summary, and sends the daily summary email to each recipient. You can customize the email content, recipients, and email server settings as needed.",[language]=Python [specific task]=scraping data from websites every hour,[language]=JavaScript [specific task]=automatically backing up database files weekly
+Write a [language] program that converts [input format] to [output format].,"[language]=JavaScript
+[input format]=CSV
+[output format]=JSON","```javascript
+const fs = require('fs');
+const csv = require('csvtojson');
+
+const inputFile = 'input.csv';
+const outputFile = 'output.json';
+
+csv()
+  .fromFile(inputFile)
+  .then((jsonObj) => {
+    fs.writeFileSync(outputFile, JSON.stringify(jsonObj, null, 2));
+    console.log('Conversion successful. JSON data written to output.json');
+  })
+  .catch((err) => {
+    console.error('Error converting CSV to JSON:', err);
+  });
+```",[language]=Python [input format]=XML [output format]=SQLite,[language]=Java [input format]=HTML [output format]=PDF
+Write a [language] program that calculates the factorial of a given number.,[language]=C++,"Here is a C++ program that calculates the factorial of a given number:
+
+```cpp
+#include <iostream>
+
+int factorial(int n) {
+    if (n == 0)
+        return 1;
+    else
+        return n * factorial(n - 1);
+}
+
+int main() {
+    int num;
+    std::cout << ""Enter a number to calculate its factorial: "";
+    std::cin >> num;
+    
+    if (num < 0) {
+        std::cout << ""Factorial is not defined for negative numbers."" << std::endl;
+    } else {
+        int result = factorial(num);
+        std::cout << ""Factorial of "" << num << "" is: "" << result << std::endl;
+    }
+    
+    return 0;
+}
+```
+
+You can compile and run this program to calculate the factorial of a given number.",[language]=Python,[language]=Java
+Develop a [language] program that merges two [data type] lists and removes duplicates.,"[language]=C#
+[data type]=integer","Here is a C# program that merges two integer lists and removes duplicates:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        List<int> list1 = new List<int> { 1, 2, 3, 4, 5 };
+        List<int> list2 = new List<int> { 3, 4, 5, 6, 7 };
+
+        List<int> mergedList = list1.Concat(list2).Distinct().ToList();
+
+        Console.WriteLine(""Merged list with duplicates removed:"");
+        foreach (int num in mergedList)
+        {
+            Console.Write(num + "" "");
+        }
+    }
+}
+```
+
+In this program, we first create two integer lists `list1` and `list2`. We then merge these two lists using `Concat()` method and remove duplicates using `Distinct()` method. Finally, we convert the resulting merged list to a list and print it to the console.","[language]=Python
+[data type]=string","[language]=Java
+[data type]=float"
+Develop a [language] module to parse and extract data from [file format] files.,"[language]=Python
+[file format]=CSV","```python
+import csv
+
+def parse_csv_file(file_path):
+    data = []
+    with open(file_path, 'r') as file:
+        csv_reader = csv.reader(file)
+        header = next(csv_reader)
+        for row in csv_reader:
+            data.append(dict(zip(header, row)))
+    return data
+
+# Example usage
+file_path = 'example.csv'
+parsed_data = parse_csv_file(file_path)
+for row in parsed_data:
+    print(row)
+``` 
+
+This Python module uses the `csv` library to parse and extract data from CSV files. The `parse_csv_file` function reads the CSV file specified by `file_path`, extracts the data, and returns it as a list of dictionaries where each dictionary represents a row in the CSV file with column headers as keys.","[language]=Java
+[file format]=JSON","[language]=Ruby
+[file format]=XML"
+Develop a [language] script to automate the process of [specific task].,"[language]=JavaScript
+[specific task]=sending daily summary emails","Sure! Below is a JavaScript script that automates the process of sending daily summary emails using Node.js and Nodemailer. Make sure to install the nodemailer package using npm before running this script.
+
+```javascript
+const nodemailer = require('nodemailer');
+
+// Email configuration
+const transporter = nodemailer.createTransport({
+    service: 'gmail',
+    auth: {
+        user: 'your_email@gmail.com',
+        pass: 'your_password'
+    }
+});
+
+// Email content
+const mailOptions = {
+    from: 'your_email@gmail.com',
+    to: 'recipient_email@example.com',
+    subject: 'Daily Summary',
+    text: 'This is your daily summary email.'
+};
+
+// Send email
+transporter.sendMail(mailOptions, (error, info) => {
+    if (error) {
+        console.log(error);
+    } else {
+        console.log('Email sent: ' + info.response);
+    }
+});
+```
+
+Replace `'your_email@gmail.com'` and `'your_password'` with your own Gmail email address and password. Also, update the `to` field in `mailOptions` with the recipient's email address.
+
+You can schedule this script to run daily using a task scheduler like cron job on a server or any other automation tool. This script will send a daily summary email to the specified recipient.",[language]=Python [specific task]=scraping weather data hourly,[language]=Ruby [specific task]=generating monthly sales reports
+Develop a script in [language] that automates the process of [specific task].,"[language]=JavaScript
+[specific task]=sending automated birthday emails","```javascript
+// Importing nodemailer module to send emails
+const nodemailer = require('nodemailer');
+
+// Function to send automated birthday emails
+function sendBirthdayEmail(email, name) {
+    // Create a transporter object using SMTP transport
+    let transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'your-email@gmail.com', // Enter your email address
+            pass: 'your-password' // Enter your password
+        }
+    });
+
+    // Email content
+    let mailOptions = {
+        from: 'your-email@gmail.com', // Enter your email address
+        to: email,
+        subject: 'Happy Birthday!',
+        text: `Dear ${name},\n\nHappy Birthday! Wishing you a fantastic day filled with joy and happiness.\n\nBest wishes,\nYour Name`
+    };
+
+    // Sending email
+    transporter.sendMail(mailOptions, function (error, info) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log('Email sent: ' + info.response);
+        }
+    });
+}
+
+// Example usage
+let birthdayEmails = [
+    { email: 'friend1@example.com', name: 'Friend 1' },
+    { email: 'friend2@example.com', name: 'Friend 2' }
+];
+
+birthdayEmails.forEach(({ email, name }) => {
+    sendBirthdayEmail(email, name);
+});
+```
+
+This JavaScript script uses the nodemailer module to send automated birthday emails. You can specify the email address and password for the sender, as well as the email content (subject and message). The script provides an example usage where you can loop through a list of recipients and send them birthday emails.",[language]=Python [specific task]=scraping data from multiple web pages,[language]=Ruby [specific task]=automatically backing up files to a cloud server
+Write a [language] program that converts [input format] to [output format].,"[language]=JavaScript
+[input format]=CSV file
+[output format]=JSON object","Here is a JavaScript program that reads a CSV file and converts it to a JSON object:
+
+```javascript
+const fs = require('fs');
+const csv = require('csvtojson');
+
+const csvFilePath = 'input.csv';
+
+csv()
+  .fromFile(csvFilePath)
+  .then((jsonObj) => {
+    const jsonData = JSON.stringify(jsonObj, null, 2);
+    console.log(jsonData);
+
+    fs.writeFile('output.json', jsonData, (err) => {
+      if (err) throw err;
+      console.log('CSV file has been converted to JSON successfully!');
+    });
+  });
+```
+
+In this program, we are using the `csvtojson` library to convert the CSV file to a JSON object. Make sure to install the `csvtojson` library using the command `npm install csvtojson` before running the script.",[language]=Python [input format]=XML file [output format]=SQLite database,[language]=Java [input format]=HTML text [output format]=PDF file
+Develop a [language] program that fetches and displays data from [API or database name].,"[language]=JavaScript
+[API or database name]=Twitter API","Here is a simple JavaScript program that fetches and displays data from the Twitter API:
+
+```javascript
+// Replace 'YOUR_BEARER_TOKEN' with your actual Twitter API bearer token
+const BEARER_TOKEN = 'YOUR_BEARER_TOKEN';
+const API_URL = 'https://api.twitter.com/2/tweets';
+
+// Function to fetch data from the Twitter API
+async function fetchTwitterData() {
+  const response = await fetch(API_URL, {
+    headers: {
+      Authorization: `Bearer ${BEARER_TOKEN}`
+    }
+  });
+
+  if (!response.ok) {
+    throw new Error(`Failed to fetch data: ${response.status}`);
+  }
+
+  const data = await response.json();
+  return data;
+}
+
+// Function to display fetched data
+async function displayTwitterData() {
+  try {
+    const data = await fetchTwitterData();
+    console.log(data);
+    // Display the data on the webpage using DOM manipulation
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+// Call the displayTwitterData function to fetch and display data
+displayTwitterData();
+```
+
+In this program, we define the Twitter API endpoint URL and our bearer token. We then create a function `fetchTwitterData` that uses `fetch` to make a request to the Twitter API with the bearer token. If the request is successful, we parse the JSON response and return the data.
+
+We also have a function `displayTwitterData` that calls `fetchTwitterData`, logs the fetched data to the console, and can be modified to display the data on a webpage using DOM manipulation.
+
+Please make sure to replace `'YOUR_BEARER_TOKEN'` with your actual Twitter API bearer token before running the program.","[language]=Python
+[API or database name]=Spotify API","[language]=Java
+[API or database name]=MongoDB"
+Develop a [language] program to merge multiple [file type] files into one.,[language]=C# [file type]=PDF,"Here is a simple C# program that merges multiple PDF files into one:
+
+```csharp
+using System;
+using System.IO;
+using iText.Kernel.Pdf;
+using iText.Kernel.Pdf.Canvas;
+
+namespace PDFMerger
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            if (args.Length < 3)
+            {
+                Console.WriteLine(""Usage: PDFMerger <outputFile> <inputFile1> <inputFile2> ..."");
+                return;
+            }
+
+            string outputFile = args[0];
+
+            using (PdfWriter writer = new PdfWriter(outputFile))
+            {
+                using (PdfDocument pdf = new PdfDocument(writer))
+                {
+                    PdfMerger merger = new PdfMerger(pdf);
+
+                    for (int i = 1; i < args.Length; i++)
+                    {
+                        using (PdfDocument sourcePdf = new PdfDocument(new PdfReader(args[i])))
+                        {
+                            merger.Merge(sourcePdf, 1, sourcePdf.GetNumberOfPages());
+                        }
+                    }
+                }
+            }
+
+            Console.WriteLine(""PDF files merged successfully!"");
+        }
+    }
+}
+```
+
+To run this program, you need to have the iText7 library installed. You can install it using NuGet Package Manager in Visual Studio or by running the following command in the Package Manager Console:
+
+```
+Install-Package itext7
+```
+
+To use this program, you can call it from the command line with the output file as the first argument and the input PDF files as subsequent arguments. For example:
+
+```
+PDFMerger.exe merged_output.pdf input1.pdf input2.pdf
+```
+
+This will merge `input1.pdf` and `input2.pdf` into `merged_output.pdf`.",[language]=Python [file type]=CSV,[language]=Java [file type]=TXT
+Develop a [language] program that fetches data from [API] and displays the results.,"[language]=JavaScript
+[API]=Twitter API","```javascript
+// Importing the 'request' library to make API requests
+const request = require('request');
+
+// Twitter API endpoint to fetch tweets
+const apiUrl = 'https://api.twitter.com/1.1/search/tweets.json?q=nodejs';
+
+// Authorization token for accessing Twitter API (replace with your own token)
+const authToken = 'Bearer YOUR_TWITTER_API_TOKEN';
+
+// Making a GET request to the Twitter API
+request.get({
+    url: apiUrl,
+    headers: {
+        'Authorization': authToken
+    }
+}, (error, response, body) => {
+    if (error) {
+        console.error('Error fetching data:', error);
+    } else {
+        const data = JSON.parse(body);
+        const tweets = data.statuses;
+        
+        // Displaying the fetched tweets
+        tweets.forEach((tweet, index) => {
+            console.log(`Tweet ${index + 1}: ${tweet.text}`);
+        });
+    }
+});
+```
+
+This JavaScript program uses the `request` library to make a GET request to the Twitter API endpoint `https://api.twitter.com/1.1/search/tweets.json?q=nodejs`. Make sure to replace `YOUR_TWITTER_API_TOKEN` with your own authorization token. The program fetches tweets related to Node.js and displays the text of each tweet.","[language]=Python
+[API]=Google Maps API","[language]=Java
+[API]=Spotify API"
+Develop a [language] program that fetches and displays data from [API or database].,"[language]=JavaScript
+[API or database]=Twitter API","Here is an example JavaScript program that fetches and displays data from the Twitter API:
+
+```javascript
+// Twitter API endpoint
+const apiEndpoint = 'https://api.twitter.com/1.1/statuses/user_timeline.json';
+
+// Twitter API authentication keys
+const consumerKey = 'YOUR_CONSUMER_KEY';
+const consumerSecret = 'YOUR_CONSUMER_SECRET';
+const accessToken = 'YOUR_ACCESS_TOKEN';
+const accessTokenSecret = 'YOUR_ACCESS_TOKEN_SECRET';
+
+// Fetch data from the Twitter API
+fetch(apiEndpoint, {
+  headers: {
+    Authorization: `Bearer ${accessToken}`
+  }
+})
+.then(response => response.json())
+.then(data => {
+  // Display the fetched data
+  console.log(data);
+})
+.catch(error => {
+  console.error('Error fetching data:', error);
+});
+```
+
+In this program, you would need to replace `'YOUR_CONSUMER_KEY'`, `'YOUR_CONSUMER_SECRET'`, `'YOUR_ACCESS_TOKEN'`, and `'YOUR_ACCESS_TOKEN_SECRET'` with your own Twitter API authentication keys. This program fetches the user timeline data from the Twitter API using the `fetch` function and displays the fetched data in the console.
+
+Please make sure to set up the necessary authentication and permissions to access the Twitter API before running this program.","[language]=Python
+[API or database]=Spotify API","[language]=Java
+[API or database]=MySQL database"
+Develop a [language] program that implements a [algorithm] for [application context].,"[language]=C++
+[algorithm]=Dijkstra's algorithm
+[application context]=finding the shortest path in a road network","Sure! Here is an example C++ program that implements Dijkstra's algorithm to find the shortest path in a road network:
+
+```cpp
+#include <iostream>
+#include <vector>
+#include <queue>
+#include <climits>
+
+using namespace std;
+
+#define INF INT_MAX
+
+typedef pair<int, int> iPair;
+
+class Graph {
+    int V;
+    vector<vector<iPair>> adj;
+
+public:
+    Graph(int V) {
+        this->V = V;
+        adj.resize(V);
+    }
+
+    void addEdge(int u, int v, int w) {
+        adj[u].push_back(make_pair(v, w));
+        adj[v].push_back(make_pair(u, w));
+    }
+
+    void dijkstra(int src) {
+        priority_queue<iPair, vector<iPair>, greater<iPair>> pq;
+        vector<int> dist(V, INF);
+
+        pq.push(make_pair(0, src));
+        dist[src] = 0;
+
+        while (!pq.empty()) {
+            int u = pq.top().second;
+            pq.pop();
+
+            for (auto it = adj[u].begin(); it != adj[u].end(); it++) {
+                int v = (*it).first;
+                int weight = (*it).second;
+
+                if (dist[v] > dist[u] + weight) {
+                    dist[v] = dist[u] + weight;
+                    pq.push(make_pair(dist[v], v));
+                }
+            }
+        }
+
+        cout << ""Shortest distances from source "" << src << "" to other vertices:\n"";
+        for (int i = 0; i < V; i++) {
+            cout << ""Vertex "" << i << "": "" << dist[i] << endl;
+        }
+    }
+};
+
+int main() {
+    int V = 5; // Number of vertices
+    Graph g(V);
+
+    // Adding edges to the road network
+    g.addEdge(0, 1, 4);
+    g.addEdge(0, 2, 2);
+    g.addEdge(1, 2, 5);
+    g.addEdge(1, 3, 10);
+    g.addEdge(2, 3, 3);
+    g.addEdge(3, 4, 7);
+
+    int src = 0; // Source vertex
+
+    g.dijkstra(src);
+
+    return 0;
+}
+```
+
+In this program, we first define a `Graph` class that represents the road network. We use an adjacency list to store the graph and implement Dijkstra's algorithm in the `dijkstra` method to find the shortest path from a given source vertex to all other vertices in the graph.
+
+You can modify the number of vertices, add more edges to the road network, and change the source vertex to test different scenarios.",[language]=Python [algorithm]=QuickSort [application context]=sorting a list of names alphabetically,[language]=Java [algorithm]=A* Search [application context]=navigating through a maze
+Write a [language] program that converts [input format] to [output format].,"[language]=C++
+[input format]=CSV file
+[output format]=JSON file","```cpp
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
+json csvToJson(std::ifstream& inputFile) {
+    json outputJson;
+    std::string line;
+    std::vector<std::string> headers;
+    
+    if (std::getline(inputFile, line)) {
+        std::stringstream ss(line);
+        std::string cell;
+        
+        while (std::getline(ss, cell, ',')) {
+            headers.push_back(cell);
+        }
+        
+        while (std::getline(inputFile, line)) {
+            std::vector<std::string> values;
+            std::stringstream ss(line);
+            
+            while (std::getline(ss, cell, ',')) {
+                values.push_back(cell);
+            }
+            
+            json record;
+            for (size_t i = 0; i < headers.size(); ++i) {
+                record[headers[i]] = values[i];
+            }
+            outputJson.push_back(record);
+        }
+    }
+    
+    return outputJson;
+}
+
+int main() {
+    std::ifstream inputFile(""input.csv"");
+    if (!inputFile.is_open()) {
+        std::cerr << ""Error opening input file."" << std::endl;
+        return 1;
+    }
+    
+    json outputJson = csvToJson(inputFile);
+    
+    std::ofstream outputFile(""output.json"");
+    if (!outputFile.is_open()) {
+        std::cerr << ""Error creating output file."" << std::endl;
+        return 1;
+    }
+    
+    outputFile << outputJson.dump(4); // pretty print the JSON data with an indentation of 4 spaces
+    std::cout << ""Conversion completed successfully."" << std::endl;
+    
+    return 0;
+}
+```
+
+This C++ program reads a CSV file (`input.csv` in this case) and converts it into a JSON file (`output.json`). The CSV data is assumed to have a header row with column names. The program uses the nlohmann/json library to handle JSON data. To compile and run this program, you need to include the nlohmann/json library in your project.",[language]=Python [input format]=text file [output format]=XML file,[language]=Java [input format]=Excel spreadsheet [output format]=HTML table
+Develop a [language] program to parse and extract data from [file format] files.,"[language]=Java
+[file format]=CSV","Here's a Java program that parses and extracts data from CSV files:
+
+```java
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class CSVParser {
+
+    public static void main(String[] args) {
+        String csvFile = ""data.csv"";
+        String line = """";
+        String cvsSplitBy = "","";
+
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            while ((line = br.readLine()) != null) {
+                String[] data = line.split(cvsSplitBy);
+
+                // Extract and display data from CSV
+                for (String value : data) {
+                    System.out.print(value + "" "");
+                }
+                System.out.println();
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+This program reads a CSV file named `data.csv`, splits each line by commas, and extracts and displays the data. You can modify this program to extract specific columns or perform any other operations on the data as needed.","[language]=Python
+[file format]=JSON","[language]=C++
+[file format]=XML"
+Develop a [language] script that automates the process of [specific task].,"[language]=Python
+[specific task]=sending daily summary emails","```python
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import datetime
+
+def send_daily_summary_email(sender_email, sender_password, receiver_email, subject, message):
+    # Set up the SMTP server
+    smtp_server = 'smtp.gmail.com'  # Change this if using a different email provider
+    smtp_port = 587  # Change this if using a different port
+    server = smtplib.SMTP(smtp_server, smtp_port)
+    server.starttls()
+    
+    # Login to the email server
+    server.login(sender_email, sender_password)
+    
+    # Prepare email content
+    msg = MIMEMultipart()
+    msg['From'] = sender_email
+    msg['To'] = receiver_email
+    msg['Subject'] = subject
+    msg.attach(MIMEText(message, 'plain'))
+    
+    # Send the email
+    server.send_message(msg)
+    
+    # Close the connection
+    server.quit()
+    
+# Example usage
+sender_email = 'your_email@gmail.com'
+sender_password = 'your_password'
+receiver_email = 'recipient_email@example.com'
+subject = 'Daily Summary Report - ' + str(datetime.date.today())
+message = 'Today\'s summary: ...\n\nBest regards,\nYour Name'
+
+send_daily_summary_email(sender_email, sender_password, receiver_email, subject, message)
+```
+
+This Python script can be used to send daily summary emails. You can customize the sender's email, sender's password, receiver's email, subject, and message content. Just fill in your email credentials and message details in the example usage section and run the script daily to send the daily summary emails automatically.",[language]=JavaScript [specific task]=automating data backup every hour,[language]=Ruby [specific task]=streamlining the generation of monthly financial reports
+Develop a script in [language] that parses and analyzes [file type] files.,"[language]=Ruby
+[file type]=CSV","```ruby
+require 'csv'
+
+# Define a method to parse and analyze CSV file
+def parse_and_analyze_csv(file_path)
+  # Initialize variables for analysis
+  total_rows = 0
+  header = []
+  max_values = Hash.new(0)
+  min_values = Hash.new(Float::INFINITY)
+  sum_values = Hash.new(0)
+
+  # Open CSV file and iterate over each row
+  CSV.foreach(file_path, headers: true) do |row|
+    total_rows += 1
+    header = row.headers if total_rows == 1
+
+    # Analyze each column in the row
+    row.each do |key, value|
+      max_values[key] = value.to_f if value.to_f > max_values[key]
+      min_values[key] = value.to_f if value.to_f < min_values[key]
+      sum_values[key] += value.to_f
+    end
+  end
+
+  # Calculate average values
+  avg_values = sum_values.transform_values { |sum| sum / total_rows }
+
+  # Print analysis results
+  puts ""Total rows: #{total_rows}""
+  puts ""Header: #{header.join(', ')}""
+  puts ""Max values: #{max_values}""
+  puts ""Min values: #{min_values}""
+  puts ""Average values: #{avg_values}""
+end
+
+# Provide file path to parse and analyze
+file_path = 'sample.csv'
+parse_and_analyze_csv(file_path)
+```
+
+This Ruby script reads a CSV file, parses the data, and analyzes it by calculating the total number of rows, finding the maximum and minimum values in each column, and calculating the average values for each column. You can run this script by providing the file path to the CSV file you want to analyze.",[language]=Python [file type]=JSON,[language]=Java [file type]=XML
+Develop a [language] module to parse and extract information from [file format] files.,"[language]=Python
+[file format]=CSV","```python
+import csv
+
+def parse_csv_file(file_path):
+    data = []
+    with open(file_path, 'r') as file:
+        csv_reader = csv.reader(file)
+        header = next(csv_reader)
+        for row in csv_reader:
+            data.append(dict(zip(header, row)))
+    return data
+
+def extract_column_data(data, column_name):
+    column_data = [row[column_name] for row in data]
+    return column_data
+
+# Example usage
+file_path = 'sample.csv'
+parsed_data = parse_csv_file(file_path)
+column_name = 'Name'
+column_data = extract_column_data(parsed_data, column_name)
+print(column_data)
+```
+
+This Python module defines functions to parse a CSV file and extract information from it. The `parse_csv_file` function reads the CSV file and returns a list of dictionaries, where each dictionary represents a row from the CSV file. The `extract_column_data` function takes the parsed data and a column name as input and returns a list of values for that column.
+
+You can use this module by providing the file path to your CSV file and the column name you want to extract data from.","[language]=Java
+[file format]=XML","[language]=C#
+[file format]=JSON"
+Write a [language] program to convert [input format] to [output format].,"[language]=Java
+[input format]=XML
+[output format]=JSON","```java
+import org.json.JSONObject;
+import org.json.XML;
+
+public class XMLtoJSONConverter {
+    public static void main(String[] args) {
+        String xmlString = ""<data><name>John</name><age>30</age><city>New York</city></data>"";
+        
+        JSONObject jsonObject = XML.toJSONObject(xmlString);
+        String jsonString = jsonObject.toString();
+        
+        System.out.println(jsonString);
+    }
+}
+```","[language]=Python
+[input format]=CSV
+[output format]=SQLite Database","[language]=C#
+[input format]=Text
+[output format]=Binary"
+Write a [language] program that calculates the factorial of a given number.,[language]=C++,"```cpp
+#include <iostream>
+
+int factorial(int n) {
+    if (n == 0) {
+        return 1;
+    } else {
+        return n * factorial(n - 1);
+    }
+}
+
+int main() {
+    int number;
+    
+    std::cout << ""Enter a number to calculate its factorial: "";
+    std::cin >> number;
+    
+    if (number < 0) {
+        std::cout << ""Factorial is not defined for negative numbers."" << std::endl;
+    } else {
+        std::cout << ""Factorial of "" << number << "" is: "" << factorial(number) << std::endl;
+    }
+    
+    return 0;
+}
+```",[language]=Python,[language]=Java
+Write a [language] program to fetch data from [API or Database] and display the results.,"[language]=JavaScript
+[API or Database]=Twitter API","```javascript
+const fetch = require('node-fetch');
+
+const bearerToken = 'YOUR_TWITTER_BEARER_TOKEN';
+const username = 'twitterdev';
+const tweetCount = 5;
+
+const apiUrl = `https://api.twitter.com/2/tweets/search/recent?query=from:${username}&max_results=${tweetCount}`;
+
+fetch(apiUrl, {
+    headers: {
+        Authorization: `Bearer ${bearerToken}`
+    }
+})
+    .then(response => response.json())
+    .then(data => {
+        data.data.forEach(tweet => {
+            console.log(`Tweet ID: ${tweet.id}`);
+            console.log(`Created At: ${tweet.created_at}`);
+            console.log(`Text: ${tweet.text}`);
+            console.log('----------');
+        });
+    })
+    .catch(err => console.error(err));
+```
+
+Replace `'YOUR_TWITTER_BEARER_TOKEN'` with your actual Twitter Bearer Token. This script will fetch the 5 most recent tweets from the specified Twitter username using the Twitter API and display their IDs, creation dates, and texts.",[language]=Python [API or Database]=MySQL,[language]=Java [API or Database]=Spotify API
+Develop a [language] program that converts [input format] to [output format].,"[language]=C#
+[input format]=CSV file
+[output format]=JSON file","Sure! Here's a C# program that reads a CSV file and converts it to a JSON file:
+
+```csharp
+using System;
+using System.Collections.Generic;
+using System.IO;
+using CsvHelper;
+using Newtonsoft.Json;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        string csvFilePath = ""input.csv"";
+        string jsonFilePath = ""output.json"";
+
+        using (var reader = new StreamReader(csvFilePath))
+        using (var csv = new CsvReader(reader))
+        {
+            var records = csv.GetRecords<dynamic>();
+
+            var json = JsonConvert.SerializeObject(records, Formatting.Indented);
+
+            File.WriteAllText(jsonFilePath, json);
+        }
+
+        Console.WriteLine(""Conversion from CSV to JSON completed."");
+    }
+}
+```
+
+Make sure to replace `input.csv` with the actual path to your CSV file and `output.json` with the desired path for the JSON output file.
+
+To run this program, you will need to install the CsvHelper and Newtonsoft.Json packages using NuGet Package Manager in Visual Studio or run the following commands in the Package Manager Console:
+
+```
+Install-Package CsvHelper
+Install-Package Newtonsoft.Json
+```
+
+After installing the packages, you can build and run the program to convert the CSV file to a JSON file.",[language]=Python [input format]=XML file [output format]=SQL database,[language]=Java [input format]=TXT document [output format]=HTML webpage
+Develop a [language] module to parse and extract data from [file format] files.,"[language]=Python
+[file format]=XML","```python
+import xml.etree.ElementTree as ET
+
+def parse_xml_file(file_path):
+    tree = ET.parse(file_path)
+    root = tree.getroot()
+
+    data = {}
+
+    for child in root:
+        if child.tag not in data:
+            data[child.tag] = []
+
+        child_data = {}
+        for key, value in child.attrib.items():
+            child_data[key] = value
+
+        data[child.tag].append(child_data)
+
+    return data
+
+# Example usage
+file_path = ""example.xml""
+parsed_data = parse_xml_file(file_path)
+print(parsed_data)
+``` 
+
+In this Python module, the `parse_xml_file` function takes a file path as input, parses the XML file using the ElementTree module, and extracts data from the XML structure. The function returns a dictionary where the keys are the XML element tags and the values are lists of dictionaries containing the attributes of each element.","[language]=Java
+[file format]=JSON","[language]=C#
+[file format]=CSV"
+Write a [language] program that calculates the factorial of a given number.,[language]=JavaScript,"```javascript
+function factorial(num) {
+    if (num === 0) {
+        return 1;
+    } else {
+        return num * factorial(num - 1);
+    }
+}
+
+const number = 5;
+const result = factorial(number);
+
+console.log(`Factorial of ${number} is: ${result}`);
+```",[language]=Python,[language]=C++
+Develop a [language] program to perform [operation] on two [data type] inputs.,"[language]=C++
+[operation]=addition
+[data type]=integer","Here's a C++ program that performs addition on two integer inputs:
+
+```cpp
+#include <iostream>
+
+int main() {
+    int num1, num2, sum;
+
+    // Input two integers from the user
+    std::cout << ""Enter first integer: "";
+    std::cin >> num1;
+
+    std::cout << ""Enter second integer: "";
+    std::cin >> num2;
+
+    // Perform addition
+    sum = num1 + num2;
+
+    // Display the result
+    std::cout << ""Sum of "" << num1 << "" and "" << num2 << "" is: "" << sum << std::endl;
+
+    return 0;
+}
+```
+
+You can compile and run this program to add two integer numbers entered by the user.",[language]=Python [operation]=multiplication [data type]=float,[language]=Java [operation]=subtraction [data type]=double
+Write a [language] program that converts temperatures from Fahrenheit to Celsius.,[language]=Java,"```java
+import java.util.Scanner;
+
+public class FahrenheitToCelsiusConverter {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print(""Enter temperature in Fahrenheit: "");
+        double fahrenheit = scanner.nextDouble();
+
+        double celsius = (fahrenheit - 32) * 5 / 9;
+
+        System.out.println(""Temperature in Celsius: "" + celsius);
+
+        scanner.close();
+    }
+}
+```",[language]=Python,[language]=C++
+Develop a [language] module to connect to a [database type] database and execute a query.,"[language]=Python
+[database type]=PostgreSQL","```python
+import psycopg2
+
+def execute_query(database, query):
+    try:
+        connection = psycopg2.connect(user=""your_username"",
+                                      password=""your_password"",
+                                      host=""your_host"",
+                                      port=""your_port"",
+                                      database=database)
+        cursor = connection.cursor()
+        cursor.execute(query)
+        connection.commit()
+        print(""Query executed successfully"")
+    except (Exception, psycopg2.Error) as error:
+        print(""Error executing query:"", error)
+    finally:
+        if connection:
+            cursor.close()
+            connection.close()
+
+# Example usage
+database_name = ""your_database_name""
+sql_query = ""SELECT * FROM your_table""
+execute_query(database_name, sql_query)
+``` 
+
+In the code snippet above, you can replace `""your_username""`, `""your_password""`, `""your_host""`, `""your_port""`, `""your_database_name""`, and `""your_table""` with your PostgreSQL database credentials and query details. This Python module uses the `psycopg2` library to connect to a PostgreSQL database and execute a query.","[language]=Java
+[database type]=MySQL","[language]=Ruby
+[database type]=MongoDB"
+Develop a script in [language] that automates [specific task].,"[language]=Python
+[specific task]=sending daily reminder emails","```python
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import schedule
+import time
+
+def send_email():
+    # Email configuration
+    sender_email = ""your_email@example.com""
+    receiver_email = ""recipient_email@example.com""
+    password = ""your_email_password""
+
+    # Email content
+    message = MIMEMultipart()
+    message[""From""] = sender_email
+    message[""To""] = receiver_email
+    message[""Subject""] = ""Daily Reminder""
+
+    body = ""This is a friendly reminder to complete your tasks for today.""
+    message.attach(MIMEText(body, ""plain""))
+
+    # Connect to the SMTP server
+    server = smtplib.SMTP(""smtp.example.com"", 587)  # Update SMTP server and port
+    server.starttls()
+    server.login(sender_email, password)
+
+    # Send email
+    server.send_message(message)
+    print(""Reminder email sent successfully"")
+
+    # Disconnect from the SMTP server
+    server.quit()
+
+# Schedule the email to be sent daily at a specific time
+schedule.every().day.at(""09:00"").do(send_email)  # Update the time as needed
+
+# Run the scheduler
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+```
+
+This Python script sets up a daily reminder email functionality using the `schedule` library and sends an email reminder every day at a specified time. Update the email configuration details (sender email, receiver email, password, SMTP server, and port) and the reminder message as needed. The script will continuously run and send the reminder email daily at the specified time.","[language]=JavaScript
+[specific task]=scraping data from web pages","[language]=Ruby
+[specific task]=updating database records nightly"
+Write a [language] program that converts [input format] to [output format].,"[language]=C++
+[input format]=CSV file
+[output format]=JSON file","Here is a C++ program that reads data from a CSV file and converts it to a JSON file:
+
+```cpp
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <string>
+#include <iomanip>
+#include <nlohmann/json.hpp>
+
+using json = nlohmann::json;
+
+void parseCSVtoJSON(const std::string& csvFilename, const std::string& jsonFilename) {
+    std::ifstream inputFile(csvFilename);
+    if (!inputFile.is_open()) {
+        std::cerr << ""Error opening file: "" << csvFilename << std::endl;
+        return;
+    }
+
+    std::vector<std::string> headers;
+    std::vector<json> rows;
+
+    std::string line;
+    while (std::getline(inputFile, line)) {
+        std::vector<std::string> data;
+        std::stringstream lineStream(line);
+        std::string cell;
+
+        if (headers.empty()) {
+            while (std::getline(lineStream, cell, ',')) {
+                headers.push_back(cell);
+            }
+        } else {
+            json row;
+            size_t index = 0;
+            while (std::getline(lineStream, cell, ',')) {
+                row[headers[index++]] = cell;
+            }
+            rows.push_back(row);
+        }
+    }
+
+    json output;
+    output[""data""] = rows;
+
+    std::ofstream outputFile(jsonFilename);
+    outputFile << std::setw(4) << output << std::endl;
+    std::cout << ""Conversion successful. JSON data saved to: "" << jsonFilename << std::endl;
+
+    inputFile.close();
+    outputFile.close();
+}
+
+int main() {
+    std::string csvFilename = ""input.csv"";
+    std::string jsonFilename = ""output.json"";
+    parseCSVtoJSON(csvFilename, jsonFilename);
+
+    return 0;
+}
+```
+
+This program reads data from a CSV file named `input.csv` and converts it to a JSON file named `output.json`. You can modify the filenames as needed. The program uses the nlohmann/json library for handling JSON data.",[language]=Python [input format]=XML file [output format]=SQL database,[language]=Java [input format]=text file [output format]=HTML page
+Develop a [language] program that fetches and displays live weather data for a given location.,"[language]=Python
+[location]=New York City","Sure! Here's a Python program that fetches and displays live weather data for New York City using the OpenWeatherMap API:
+
+```python
+import requests
+
+def get_weather_data(city):
+    api_key = ""YOUR_API_KEY""  # Replace ""YOUR_API_KEY"" with your actual API key from OpenWeatherMap
+    base_url = f""http://api.openweathermap.org/data/2.5/weather?q={city}&appid={api_key}&units=metric""
+    
+    response = requests.get(base_url)
+    data = response.json()
+    
+    if data[""cod""] == 200:
+        weather = data[""weather""][0][""description""]
+        temperature = data[""main""][""temp""]
+        humidity = data[""main""][""humidity""]
+        wind_speed = data[""wind""][""speed""]
+        
+        print(f""Weather in {city}: {weather}"")
+        print(f""Temperature: {temperature}°C"")
+        print(f""Humidity: {humidity}%"")
+        print(f""Wind Speed: {wind_speed} m/s"")
+    else:
+        print(""City not found. Please check the city name and try again."")
+
+city = ""New York""
+get_weather_data(city)
+```
+
+Before running this program, you will need to sign up for a free account on OpenWeatherMap (https://home.openweathermap.org/users/sign_up) to get your API key. Replace ""YOUR_API_KEY"" in the code with your actual API key.
+
+This program fetches weather data for New York City and displays the current weather description, temperature, humidity, and wind speed. You can modify the city variable to get weather data for a different location.","[language]=Java
+[location]=Tokyo","[language]=C#
+[location]=London"
+Write a [language] program that connects to a [database type] database and retrieves all records from a specified table.,"[language]=Java
+[database type]=MySQL","Sure! Here is an example Java program that connects to a MySQL database and retrieves all records from a specified table:
+
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class DatabaseReader {
+
+    public static void main(String[] args) {
+        String url = ""jdbc:mysql://localhost:3306/mydatabase"";
+        String user = ""username"";
+        String password = ""password"";
+        
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             Statement stmt = conn.createStatement()) {
+            
+            String tableName = ""my_table"";
+            String query = ""SELECT * FROM "" + tableName;
+            
+            ResultSet rs = stmt.executeQuery(query);
+            while (rs.next()) {
+                // Process each row
+                int id = rs.getInt(""id"");
+                String name = rs.getString(""name"");
+                // Add more fields as needed
+                
+                System.out.println(""ID: "" + id + "", Name: "" + name);
+            }
+            
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+Make sure to replace `jdbc:mysql://localhost:3306/mydatabase`, `username`, `password`, and `my_table` with the appropriate values for your MySQL database connection. Additionally, you may need to download and include the MySQL JDBC driver in your project to establish the connection.","[language]=Python
+[database type]=PostgreSQL","[language]=C#
+[database type]=SQLite"
+Write a [language] program that connects to a [type of database] and retrieves all records.,"[language]=Java
+[type of database]=MySQL","Sure! Here is an example Java program that connects to a MySQL database and retrieves all records from a table:
+
+```java
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+public class RetrieveRecordsFromMySQL {
+
+    public static void main(String[] args) {
+        String url = ""jdbc:mysql://localhost:3306/your_database_name"";
+        String user = ""your_username"";
+        String password = ""your_password"";
+
+        try (Connection conn = DriverManager.getConnection(url, user, password);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(""SELECT * FROM your_table_name"")) {
+
+            while (rs.next()) {
+                // Retrieve data from the result set
+                int id = rs.getInt(""id"");
+                String name = rs.getString(""name"");
+                // Add more columns as needed
+
+                // Process the retrieved data (e.g., print to console)
+                System.out.println(""ID: "" + id + "", Name: "" + name);
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+Make sure to replace `your_database_name`, `your_username`, `your_password`, and `your_table_name` with your actual database details. This program uses JDBC to connect to the MySQL database and execute a simple SELECT query to retrieve all records from the specified table.","[language]=Python
+[type of database]=PostgreSQL","[language]=C#
+[type of database]=MongoDB"
+Develop a [language] method to merge two [data structure] efficiently.,"[language]=C++
+[data structure]=sorted arrays","Here is a C++ method to efficiently merge two sorted arrays:
+
+```cpp
+#include <vector>
+
+std::vector<int> mergeSortedArrays(const std::vector<int>& arr1, const std::vector<int>& arr2) {
+    std::vector<int> mergedArray;
+    int i = 0, j = 0;
+
+    while (i < arr1.size() && j < arr2.size()) {
+        if (arr1[i] < arr2[j]) {
+            mergedArray.push_back(arr1[i]);
+            i++;
+        } else {
+            mergedArray.push_back(arr2[j]);
+            j++;
+        }
+    }
+
+    while (i < arr1.size()) {
+        mergedArray.push_back(arr1[i]);
+        i++;
+    }
+
+    while (j < arr2.size()) {
+        mergedArray.push_back(arr2[j]);
+        j++;
+    }
+
+    return mergedArray;
+}
+```
+
+This method takes two sorted arrays `arr1` and `arr2` as input and efficiently merges them into a new sorted array `mergedArray`. It uses two pointers `i` and `j` to iterate through the two arrays simultaneously and compares elements to merge them into the `mergedArray`. Finally, any remaining elements in either of the input arrays are added to the `mergedArray`.",[language]=Python [data structure]=linked lists,[language]=Java [data_structure]=binary trees

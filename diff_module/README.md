@@ -1,0 +1,3 @@
+用topic_analysis.py找出主题
+用extract_key_phrases.py找出关键词/短语
+关联度分析，找到关联度高的词/短语进行过滤
